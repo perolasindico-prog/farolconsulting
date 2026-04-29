@@ -18,14 +18,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
     <header class="nav" id="nav">
-      <a href="#top" class="nav__brand">FAROL NORTH</a>
+      <a href="#top" class="nav__brand" aria-label="Farol North home">
+        <svg class="logo-mark" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 1.5 L13.35 10.65 L22.5 12 L13.35 13.35 L12 22.5 L10.65 13.35 L1.5 12 L10.65 10.65 Z" />
+        </svg>
+        <span>FAROL NORTH</span>
+      </a>
       <nav class="nav__links">
         <a href="#about">About</a>
         <a href="#services">Services</a>
@@ -77,7 +82,7 @@
         <div class="grid__label">
           <p class="eyebrow">About</p>
         </div>
-        <div class="grid__body">
+        <div class="grid__body reveal">
           <h2>Bridging the gap between ambition and execution.</h2>
           <p class="lead">
             Farol North is a strategic consultancy for founders who are tired
@@ -120,7 +125,7 @@
         <div class="grid__label">
           <p class="eyebrow eyebrow--light">Services</p>
         </div>
-        <div class="grid__body">
+        <div class="grid__body reveal">
           <h2 class="h-light">How Farol Changes Businesses</h2>
           <ul class="service-list">
             <li>
@@ -206,8 +211,17 @@
         </p>
       </div>
 
+      <div class="filters" role="tablist" aria-label="Filter playbooks">
+        <button class="filter is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="filter" data-filter="foundations" role="tab">Foundations</button>
+        <button class="filter" data-filter="operations" role="tab">Operations</button>
+        <button class="filter" data-filter="growth" role="tab">Growth</button>
+        <button class="filter" data-filter="brand" role="tab">Brand &amp; Capital</button>
+        <button class="filter" data-filter="bundles" role="tab">Bundles</button>
+      </div>
+
       <div class="cards">
-        <article class="card card--mint">
+        <article class="card card--mint" data-category="foundations">
           <p class="card__tag">Foundations · Self-paced</p>
           <h3>The Founder's First Steps</h3>
           <p>
@@ -217,7 +231,7 @@
           <div class="card__foot"><span class="price">$25</span><a class="card__cta">Get access</a></div>
         </article>
 
-        <article class="card card--olive">
+        <article class="card card--olive" data-category="foundations">
           <p class="card__tag">Foundations · Self-paced</p>
           <h3>U.S. Academy Starter Kit</h3>
           <p>
@@ -227,7 +241,7 @@
           <div class="card__foot"><span class="price">$50</span><a class="card__cta">Get access</a></div>
         </article>
 
-        <article class="card card--brown">
+        <article class="card card--brown" data-category="operations">
           <p class="card__tag">Operations · Workshop</p>
           <h3>Crisis &amp; Banking Basics</h3>
           <p>
@@ -237,7 +251,7 @@
           <div class="card__foot"><span class="price">$90</span><a class="card__cta">Get access</a></div>
         </article>
 
-        <article class="card card--ink">
+        <article class="card card--ink" data-category="brand">
           <p class="card__tag">Brand · Toolkit</p>
           <h3>Dream Brand Foundations</h3>
           <p>
@@ -247,7 +261,7 @@
           <div class="card__foot"><span class="price">$150</span><a class="card__cta">Get access</a></div>
         </article>
 
-        <article class="card card--olive">
+        <article class="card card--olive" data-category="operations">
           <p class="card__tag">Operations · Playbook</p>
           <h3>Hiring &amp; Delegation Playbook</h3>
           <p>
@@ -257,7 +271,7 @@
           <div class="card__foot"><span class="price">$60</span><a class="card__cta">Get access</a></div>
         </article>
 
-        <article class="card card--mint">
+        <article class="card card--mint" data-category="operations">
           <p class="card__tag">Operations · Toolkit</p>
           <h3>The All-In-One Business OS</h3>
           <p>
@@ -267,7 +281,7 @@
           <div class="card__foot"><span class="price">$80</span><a class="card__cta">Get access</a></div>
         </article>
 
-        <article class="card card--brown">
+        <article class="card card--brown" data-category="growth">
           <p class="card__tag">Finance · Workshop</p>
           <h3>U.S. Tax Strategy for Founders</h3>
           <p>
@@ -277,7 +291,7 @@
           <div class="card__foot"><span class="price">$120</span><a class="card__cta">Get access</a></div>
         </article>
 
-        <article class="card card--ink">
+        <article class="card card--ink" data-category="growth">
           <p class="card__tag">Growth · Workshop</p>
           <h3>Scale to Six Figures Workshop</h3>
           <p>
@@ -287,7 +301,7 @@
           <div class="card__foot"><span class="price">$150</span><a class="card__cta">Get access</a></div>
         </article>
 
-        <article class="card card--purple">
+        <article class="card card--purple" data-category="brand">
           <p class="card__tag">Brand · Toolkit</p>
           <h3>Brand &amp; Positioning Suite</h3>
           <p>
@@ -297,7 +311,7 @@
           <div class="card__foot"><span class="price">$190</span><a class="card__cta">Get access</a></div>
         </article>
 
-        <article class="card card--teal">
+        <article class="card card--teal" data-category="foundations">
           <p class="card__tag">Launch · Self-paced</p>
           <h3>Launch Your U.S. Business</h3>
           <p>
@@ -307,7 +321,7 @@
           <div class="card__foot"><span class="price">$200</span><a class="card__cta">Get access</a></div>
         </article>
 
-        <article class="card card--ink">
+        <article class="card card--ink" data-category="brand">
           <p class="card__tag">Capital · Playbook</p>
           <h3>Funded Tech Track</h3>
           <p>
@@ -317,7 +331,7 @@
           <div class="card__foot"><span class="price">$250</span><a class="card__cta">Get access</a></div>
         </article>
 
-        <article class="card card--purple">
+        <article class="card card--purple" data-category="growth">
           <p class="card__tag">Growth · Mastery</p>
           <h3>Digital Product Mastery</h3>
           <p>
@@ -327,7 +341,7 @@
           <div class="card__foot"><span class="price">$500</span><a class="card__cta">Get access</a></div>
         </article>
 
-        <article class="card card--gold card--wide">
+        <article class="card card--gold card--wide" data-category="bundles">
           <p class="card__tag">All-Access · Bundle</p>
           <h3>Complete Library Pass</h3>
           <p>
@@ -337,7 +351,7 @@
           <div class="card__foot"><span class="price">$500</span><a class="card__cta">Get access</a></div>
         </article>
 
-        <article class="card card--teal card--wide">
+        <article class="card card--teal card--wide" data-category="bundles">
           <p class="card__tag">Custom · 1:1</p>
           <h3>Custom Lessons Program</h3>
           <p>
@@ -360,6 +374,10 @@
       </div>
       <div class="quotes">
         <figure>
+          <header class="quote__head">
+            <span class="avatar" style="--c1:#3b6a78;--c2:#1f3e48">ML</span>
+            <span class="stars" aria-label="5 out of 5">★★★★★</span>
+          </header>
           <blockquote>
             "We came in stuck at a revenue ceiling we couldn't explain. Six weeks
             later we had a new pricing model, a clearer offer, and the best month
@@ -368,6 +386,10 @@
           <figcaption><strong>Maria L.</strong> · SaaS Founder, Lisbon</figcaption>
         </figure>
         <figure>
+          <header class="quote__head">
+            <span class="avatar" style="--c1:#7a5c34;--c2:#3d2e19">DR</span>
+            <span class="stars" aria-label="5 out of 5">★★★★★</span>
+          </header>
           <blockquote>
             "Farol cut through three years of consultant noise in one afternoon.
             Honest, fast, and the only advisors we've ever recommended unprompted."
@@ -375,6 +397,10 @@
           <figcaption><strong>David R.</strong> · CEO, Industrial Services</figcaption>
         </figure>
         <figure>
+          <header class="quote__head">
+            <span class="avatar" style="--c1:#5d4a7a;--c2:#2f243d">BS</span>
+            <span class="stars" aria-label="5 out of 5">★★★★★</span>
+          </header>
           <blockquote>
             "The U.S. market entry track paid for itself in the first quarter.
             We launched without the usual six months of expensive mistakes."
@@ -382,6 +408,10 @@
           <figcaption><strong>Beatriz S.</strong> · Founder, Consumer Brand</figcaption>
         </figure>
         <figure>
+          <header class="quote__head">
+            <span class="avatar" style="--c1:#3a6a5a;--c2:#1d3a30">TP</span>
+            <span class="stars" aria-label="5 out of 5">★★★★★</span>
+          </header>
           <blockquote>
             "What I appreciate most is that they stay until it's done. No hand-off,
             no template dump. They treat the business like it's theirs."
@@ -389,12 +419,20 @@
           <figcaption><strong>Tomás P.</strong> · Operating Partner</figcaption>
         </figure>
         <figure>
+          <header class="quote__head">
+            <span class="avatar" style="--c1:#6a4258;--c2:#3d2533">AK</span>
+            <span class="stars" aria-label="5 out of 5">★★★★★</span>
+          </header>
           <blockquote>
             "Strategy work that survives contact with reality. Rare."
           </blockquote>
           <figcaption><strong>Anna K.</strong> · COO, Fintech</figcaption>
         </figure>
         <figure>
+          <header class="quote__head">
+            <span class="avatar" style="--c1:#3f5b7a;--c2:#1f2f3d">CM</span>
+            <span class="stars" aria-label="5 out of 5">★★★★★</span>
+          </header>
           <blockquote>
             "Worth every dollar — and we've worked with the big firms. This is
             the engagement we wish we'd had five years ago."
@@ -530,12 +568,63 @@
     </section>
 
     <footer class="footer">
-      <div class="footer__inner">
-        <p class="footer__brand">FAROL NORTH</p>
-        <p class="footer__tag">Strategic Consulting &amp; Advisory</p>
-        <p class="footer__legal">
-          © <span id="year">2026</span> Farol North LLC — All rights reserved.
-        </p>
+      <div class="footer__top">
+        <div class="footer__brand-col">
+          <a href="#top" class="footer__brand" aria-label="Farol North home">
+            <svg class="logo-mark" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 1.5 L13.35 10.65 L22.5 12 L13.35 13.35 L12 22.5 L10.65 13.35 L1.5 12 L10.65 10.65 Z" />
+            </svg>
+            <span>FAROL NORTH</span>
+          </a>
+          <p class="footer__pitch">
+            Strategic consulting and advisory for founders who want a
+            business that actually works.
+          </p>
+          <a class="footer__email" href="mailto:contact@farolconsulting.com">
+            contact@farolconsulting.com
+          </a>
+          <p class="footer__location">Lisbon · New York</p>
+        </div>
+
+        <div class="footer__col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Strategic Consulting</a></li>
+            <li><a href="#services">Advisory Services</a></li>
+            <li><a href="#services">Operational Diagnostics</a></li>
+            <li><a href="#services">Growth &amp; GTM</a></li>
+            <li><a href="#services">U.S. Market Entry</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Playbooks</h4>
+          <ul>
+            <li><a href="#playbooks">Foundations</a></li>
+            <li><a href="#playbooks">Operations</a></li>
+            <li><a href="#playbooks">Growth</a></li>
+            <li><a href="#playbooks">Brand &amp; Capital</a></li>
+            <li><a href="#playbooks">Library Pass</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Engage</h4>
+          <ul>
+            <li><a href="#advisory">Strategy Session · $300</a></li>
+            <li><a href="#advisory">Monthly Advisory · $750</a></li>
+            <li><a href="#advisory">Executive Partner · $1,000</a></li>
+            <li><a href="#contact">Book a call</a></li>
+            <li>
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn ↗</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>© <span id="year">2026</span> Farol North LLC. All rights reserved.</p>
+        <p class="footer__bottom-tag">Strategic Consulting &amp; Advisory</p>
       </div>
     </footer>
 

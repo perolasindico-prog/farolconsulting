@@ -54,6 +54,43 @@
     stats.forEach(animate);
   }
 
+  // Reveal-on-scroll
+  const reveals = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window && reveals.length) {
+    const ro = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-in");
+            ro.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+    );
+    reveals.forEach((el) => ro.observe(el));
+  } else {
+    reveals.forEach((el) => el.classList.add("is-in"));
+  }
+
+  // Playbook filter tabs
+  const filterButtons = document.querySelectorAll(".filter");
+  const cards = document.querySelectorAll(".cards .card");
+  filterButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const target = btn.dataset.filter;
+      filterButtons.forEach((b) => {
+        const active = b === btn;
+        b.classList.toggle("is-active", active);
+        b.setAttribute("aria-selected", active ? "true" : "false");
+      });
+      cards.forEach((c) => {
+        const match = target === "all" || c.dataset.category === target;
+        c.classList.toggle("is-hidden", !match);
+      });
+    });
+  });
+
   // Year
   const y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
